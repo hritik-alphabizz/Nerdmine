@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:nerdmine/generated/assets.dart';
 import 'package:nerdmine/screen/forget_scrren.dart';
+import 'package:nerdmine/screen/home_screen.dart';
 import 'package:nerdmine/screen/otp_screen.dart';
 import 'package:nerdmine/screen/register_screen.dart';
 import 'package:nerdmine/utils/ApiBaseHelper.dart';
@@ -29,9 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
     changePage();
   }
 
-  changePage() async {
-
-  }
+  changePage() async {}
 
   @override
   Widget build(BuildContext context) {
@@ -42,21 +41,20 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Container(
             alignment: Alignment.center,
             width: getWidth(720),
-            decoration: BoxDecoration(
-                color: MyColorName.colorBg2
-            ),
+            decoration: BoxDecoration(color: MyColorName.colorBg2),
             padding: EdgeInsets.symmetric(horizontal: getWidth(47)),
-            child:   Column(
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 boxHeight(30),
                 Container(
                     child: Image.asset(
-                      Assets.imagesLoginLogo,
-                      height: getHeight(113),
-                      width: getWidth(314), fit: BoxFit.fill,
-                    )),
+                  Assets.imagesLoginLogo,
+                  height: getHeight(113),
+                  width: getWidth(314),
+                  fit: BoxFit.fill,
+                )),
                 boxHeight(76),
                 text("Login",
                     textColor: MyColorName.colorTextThird,
@@ -64,7 +62,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     isLongText: true,
                     fontSize: 20.sp),
                 boxHeight(46),
-                text("Login with your mobile number or continue with social media",
+                text(
+                    "Login with your mobile number or continue with social media",
                     textColor: MyColorName.appbarBg,
                     fontFamily: fontRegular,
                     isCentered: true,
@@ -78,23 +77,29 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(48.sp),
-                      borderSide: BorderSide(color:MyColorName.colorTextSecondary.withOpacity(0.2) ),
+                      borderSide: BorderSide(
+                          color:
+                              MyColorName.colorTextSecondary.withOpacity(0.2)),
                     ),
                     fillColor: MyColorName.colorBg1,
                     filled: true,
                     counterText: '',
                     suffixIcon: Container(
                       padding: EdgeInsets.all(getWidth(20)),
-                      child: Image.asset(Assets.imagesPhone,
+                      child: Image.asset(
+                        Assets.imagesPhone,
                         height: getWidth(29),
-                        width: getWidth(29), fit: BoxFit.fill,
+                        width: getWidth(29),
+                        fit: BoxFit.fill,
                       ),
                     ),
                     contentPadding: EdgeInsets.all(getWidth(30)),
                     hintText: "Enter mobile no.",
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(48.sp),
-                      borderSide: BorderSide(color:MyColorName.colorTextSecondary.withOpacity(0.2) ),
+                      borderSide: BorderSide(
+                          color:
+                              MyColorName.colorTextSecondary.withOpacity(0.2)),
                     ),
                   ),
                 ),
@@ -106,7 +111,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(48.sp),
-                      borderSide: BorderSide(color:MyColorName.colorTextSecondary.withOpacity(0.2) ),
+                      borderSide: BorderSide(
+                          color:
+                              MyColorName.colorTextSecondary.withOpacity(0.2)),
                     ),
                     fillColor: MyColorName.colorBg1,
                     filled: true,
@@ -115,21 +122,25 @@ class _LoginScreenState extends State<LoginScreen> {
                     suffixIcon: Container(
                       padding: EdgeInsets.all(getWidth(20)),
                       child: InkWell(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
-                            obscure=!obscure;
+                            obscure = !obscure;
                           });
                         },
-                        child: Image.asset(Assets.imagesPass,
+                        child: Image.asset(
+                          Assets.imagesPass,
                           height: getWidth(29),
-                          width: getWidth(40), fit: BoxFit.fill,
+                          width: getWidth(40),
+                          fit: BoxFit.fill,
                         ),
                       ),
                     ),
                     hintText: "Enter password",
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(48.sp),
-                      borderSide: BorderSide(color:MyColorName.colorTextSecondary.withOpacity(0.2) ),
+                      borderSide: BorderSide(
+                          color:
+                              MyColorName.colorTextSecondary.withOpacity(0.2)),
                     ),
                   ),
                 ),
@@ -138,7 +149,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         navigateScreen(context, ForgetScreen());
                       },
                       child: text(
@@ -152,12 +163,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 boxHeight(37),
                 InkWell(
-                  onTap: (){
-                    if(phoneCon.text==""){
+                  onTap: () {
+                    if (phoneCon.text == "") {
                       setSnackbar("Please enter valid phone number", context);
                       return;
                     }
-                    if(passCon.text==""||passCon.text.length<6){
+                    if (passCon.text == "" || passCon.text.length < 6) {
                       setSnackbar("Please enter valid password", context);
                       return;
                     }
@@ -174,11 +185,15 @@ class _LoginScreenState extends State<LoginScreen> {
                       radius: 48.sp,
                     ),
                     child: Center(
-                      child: !loading?text("Login",
-                          textColor: MyColorName.colorTextPrimary,
-                          fontFamily: fontRegular,
-                          isLongText: true,
-                          fontSize: 12.sp):CircularProgressIndicator(color: MyColorName.colorTextPrimary,),
+                      child: !loading
+                          ? text("Login",
+                              textColor: MyColorName.colorTextPrimary,
+                              fontFamily: fontRegular,
+                              isLongText: true,
+                              fontSize: 12.sp)
+                          : CircularProgressIndicator(
+                              color: MyColorName.colorTextPrimary,
+                            ),
                     ),
                   ),
                 ),
@@ -187,7 +202,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
-                      width: getWidth(100),
+                        width: getWidth(100),
                         child: Divider(
                           thickness: 1,
                         )),
@@ -211,13 +226,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     Image.asset(
                       Assets.imagesFb,
                       height: getWidth(86),
-                      width: getWidth(86), fit: BoxFit.fill,
+                      width: getWidth(86),
+                      fit: BoxFit.fill,
                     ),
                     boxWidth(67),
                     Image.asset(
                       Assets.imagesGoogle,
                       height: getWidth(86),
-                      width: getWidth(86), fit: BoxFit.fill,
+                      width: getWidth(86),
+                      fit: BoxFit.fill,
                     ),
                   ],
                 ),
@@ -232,7 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       fontSize: 10.sp,
                     ),
                     InkWell(
-                      onTap: (){
+                      onTap: () {
                         navigateScreen(context, RegisterScreen());
                       },
                       child: text(
@@ -252,6 +269,7 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+
   TextEditingController phoneCon = new TextEditingController();
   TextEditingController passCon = new TextEditingController();
   ApiBaseHelper apiBase = new ApiBaseHelper();
@@ -263,38 +281,44 @@ class _LoginScreenState extends State<LoginScreen> {
 
     // e.g. "Moto G (4)"
 
-
     if (isNetwork) {
       try {
         Map data;
         data = {
           "phone_no": phoneCon.text.trim().toString(),
-          "password":passCon.text.toString(),
+          "password": passCon.text.toString(),
         };
-        Map response = await apiBase.postAPICall(Uri.parse(baseUrl + "login"), data);
+        Map response =
+            await apiBase.postAPICall(Uri.parse(baseUrl + "login"), data);
         print(response);
         bool status = true;
         setState(() {
           loading = false;
         });
         if (response['status']) {
-          App.localStorage.setString("user_id", response['UserInfo']['user_id']);
+          App.localStorage
+              .setString("user_id", response['UserInfo']['user_id']);
           App.localStorage.setString("name", response['UserInfo']['name']);
           App.localStorage.setString("email", response['UserInfo']['email']);
-          App.localStorage.setString("user_type", response['UserInfo']['user_type']);
-          App.localStorage.setString("user_type_id", response['UserInfo']['user_type_id']);
-          App.localStorage.setString("profile", response['UserInfo']['profile_image_path']);
-          App.localStorage.setString("user_unique_id", response['UserInfo']['user_unique_id']);
+          App.localStorage
+              .setString("user_type", response['UserInfo']['user_type']);
+          App.localStorage
+              .setString("user_type_id", response['UserInfo']['user_type_id']);
+          App.localStorage
+              .setString("profile", response['UserInfo']['profile_image_path']);
+          App.localStorage.setString(
+              "user_unique_id", response['UserInfo']['user_unique_id']);
           curUserId = App.localStorage.getString("user_id");
 
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => OtpScreen("", response['OTP'].toString(), ""))).then((value) {
+          // Navigator.of(context).push(MaterialPageRoute(builder: (context) => OtpScreen("", response['OTP'].toString(), ""))).then((value) {
+          //   Navigator.of(context).pop();
+          // });
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => HomeScreen()))
+              .then((value) {
             Navigator.of(context).pop();
           });
-
-        } else {
-
-
-        }
+        } else {}
         String msg = response['msg'];
         setSnackbar(msg, context);
       } on TimeoutException catch (_) {
