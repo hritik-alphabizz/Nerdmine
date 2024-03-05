@@ -1,2 +1,2 @@
-# Nerdmine
-Nerdmine
+# nerdmine
+ linkedin
