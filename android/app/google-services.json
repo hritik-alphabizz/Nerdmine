@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "494741896276",
+    "project_id": "nerdmind-cdc86",
+    "storage_bucket": "nerdmind-cdc86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494741896276:android:0c55ddea62069a356281c1",
+        "android_client_info": {
+          "package_name": "com.app.nerdmine"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "494741896276-vi92cdhha0oqd43llc1escidpd11rphc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.nerdmine",
+            "certificate_hash": "da4a4f13949cd566bde6e712e9c8f0c0ed3669f6"
+          }
+        },
+        {
+          "client_id": "494741896276-fef8718nb99gd1rm9peenggssqaqtg2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWdXih9XcVKYzcmSpgs714DzQkbFP7sgs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "494741896276-fef8718nb99gd1rm9peenggssqaqtg2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
